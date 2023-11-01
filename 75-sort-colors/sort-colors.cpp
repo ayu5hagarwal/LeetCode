@@ -1,9 +1,8 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-         int zeros = 0;
-      int ones = 0;
-      int twos = 0;
+         int zeros,ones,twos;
+         zeros=ones=twos=0;
 
       for (int i = 0; i < nums.size(); i++)
       {
@@ -11,37 +10,28 @@ public:
         {
           zeros++;
         } 
-      }
-       for (int i = 0; i < nums.size(); i++)
-      {
         if (nums[i] == 1)
         {
           ones++;
         } 
-      }
-       for (int i = 0; i < nums.size(); i++)
-      {
         if (nums[i] == 2)
         {
           twos++;
         } 
       }
-      for (int i = 0; i < zeros; i++)
-      {
-        nums[i] = 0;
+       
+      int i = 0;
+      while(zeros--){
+          nums[i] = 0;
+          i++;
       }
-      for (int i = zeros; i < zeros + ones; i++)
-      {
-        nums[i] = 1;
+      while(ones--){
+          nums[i] = 1;
+          i++;
       }
-      for (int i = zeros + ones; i < zeros + ones + twos; i++)
-      {
-        nums[i] = 2;
-      }
-
-      for (int i = 0; i < nums.size(); i++)
-      {
-        cout << nums[i] << " ";
+      while(twos--){
+          nums[i] = 2;
+          i++;
       }
     }
 };
